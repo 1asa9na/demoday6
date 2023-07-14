@@ -1,8 +1,6 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:image_picker/image_picker.dart';
 import 'package:image_picker_web/image_picker_web.dart';
 import 'package:sample_statistics/sample_statistics.dart';
 
@@ -44,7 +42,7 @@ class HomePageState extends State<HomePage> {
                     child: CheckboxListTile(
                       value: getTextileType,
                       onChanged: (value) => setState(
-                        () => {getTextileType = !getTextileType},
+                        () => getTextileType = !getTextileType,
                       ),
                       title: Text("Тип материала"),
                     ),
@@ -55,7 +53,7 @@ class HomePageState extends State<HomePage> {
                     child: CheckboxListTile(
                       value: getBreathability,
                       onChanged: (value) => setState(
-                        () => {getBreathability = !getBreathability},
+                        () => getBreathability = !getBreathability,
                       ),
                       title: Text("Воздухопроницаемость"),
                     ),
