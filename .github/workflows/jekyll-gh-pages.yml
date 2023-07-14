@@ -1,18 +1,16 @@
-name: Flutter Web Deploy
+name: Gh-Pages
+
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
+
 jobs:
-  build:    
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
-      - run: flutter build web --release --base-href /flutter_web/
-      - run: git config user.name github-actions
-      - run: git config user.email github-actions@github.com
-      - run: git --work-tree build/web add --all
-      - run: git commit -m "Automatic deployment by github-actions"
-      - run: git push origin HEAD:gh-pages --force
+      - uses: actions/checkout@v2 # Only works with v2
+      - uses: subosito/flutter-action@v1
+      - uses: bluefireteam/flutter-gh-pages@v7
+        with:
+          baseHref: /demoday6/
